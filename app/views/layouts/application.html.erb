@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LoginForm</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% if user_signed_in? %>
+  <%= link_to "ユーザー編集", edit_user_registration_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to "トップ", root_path %>
+      <%= link_to "ユーザー一覧", 'user#index' %>
+      <%= current_user.id %>
+      <%= current_user.name %>
+    <% else %>
+      <%# <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+      <%= link_to "ログイン", new_user_session_path %>
+      <%# <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      <%= link_to "新規登録", new_user_registration_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

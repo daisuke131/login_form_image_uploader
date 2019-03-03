@@ -14,7 +14,6 @@
   <%= link_to "ユーザー編集", edit_user_registration_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <%= link_to "トップ", root_path %>
-      <%= link_to "ユーザー一覧", 'user#index' %>
       <%= current_user.id %>
       <%= current_user.name %>
     <% else %>
